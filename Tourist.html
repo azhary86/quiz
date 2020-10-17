@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Foodie</title>
+<title>Hangout</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -27,7 +27,7 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color:#333;
 }
 
 .navbar a {
@@ -39,12 +39,8 @@ body {
   text-decoration: none;
 }
 
-.navbar a.right {
-  float: right;
-}
-
 .navbar a:hover {
-  background-color: #ddd;
+  background-color:#ddd;
   color: black;
 }
 
@@ -65,7 +61,7 @@ body {
 .footer {
   padding: 1px;
   text-align: center;
-  background: #ddd;
+  background:#ddd;
 }
 
 @media screen and (max-width: 700px) {
@@ -81,28 +77,40 @@ body {
   }
 }
 
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
   width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
-.active, .collapsible:hover {
-  background-color: #555;
+.modalContent {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
-.content {
-  padding: 0 20px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 </style>
@@ -124,12 +132,90 @@ body {
 
 <div class="row">
   <div class="main">
+    <h1>Tourism Site at Bogor, West Jawa</h1>
+    <ol>
+      <li>Kebun Raya Bogor</li>
+        <button id="Button">Preview</button>
+          <div id="Modal" class="modal">
+            <div class="modalContent">
+              <span class="close">&times;</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.
+              395875980358!2d106.79738111449683!3d-6.59762356632921!2m3!1f0!2f0!3f0!3m
+              2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5c412a67abb%3A0x75f23c6b45a37ee5!
+              2sKebun%20Raya%20Bogor!5e0!3m2!1sid!2sid!4v1602918833828!5m2!1sid!2sid" 
+              width="500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              <img src = "Kebun Raya Bogor.jpg" width="500" height="450">
+            </div>
+          </div>
+        <p>Kebun Raya Bogor atau Kebun Botani Bogor adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. 
+        Luasnya mencapai 87 hektar dan memiliki 15.000 jenis koleksi pohon dan tumbuhan. Saat ini Kebun Raya Bogor ramai 
+        dikunjungi sebagai tempat wisata, terutama hari Sabtu dan Minggu. Tiket masuknya Rp 15.000. Alamat Kebun Raya Bogor:
+        Jl. Ir. H. Juanda No.13, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16122 src: 
+        <a href="https://id.wikipedia.org/wiki/Kebun_Raya_Bogor" target="_blank">wikipedia</a></p>
+      <li>Istana Bogor</li>
+        <button id="Button1">Preview</button>
+          <div id="Modal1" class="modal">
+            <div class="modalContent">
+              <span class="close1">&times;</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3928273441425!2d106.7952779147711!3d-6.59800459522
+              846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5c62d7196cd%3A0xb9728ad803356b26!2sIstana%20Bogor%2C%20Paledang
+              %2C%20Kecamatan%20Bogor%20Tengah%2C%20Kota%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1602921145721!5m2!1sid!2sid" width=
+              "500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              <img src = "Istana Bogor.jpg" width="500" height="450">
+            </div>
+          </div>
+        <p>Istana Bogor merupakan salah satu dari enam Istana Presiden Republik Indonesia yang mempunyai keunikan tersendiri dikarenakan
+           aspek historis, kebudayaan, dan faunanya. Salah satunya adalah keberadaan rusa-rusa yang didatangkan langsung dari Nepal dan 
+           tetap terjaga dari dulu sampai sekarang. src: 
+        <a href="https://id.wikipedia.org/wiki/Istana_Bogor" target="_blank">wikipedia</a></p>
+    </ol>
   </div>
 </div>
 
 <div class="footer">
   <p>Contact Us: Ryan Rasyid</p>
 </div>
+
+<script>
+  // modal1
+  var modal = document.getElementById("Modal");
+  var button = document.getElementById("Button");
+  var span = document.getElementsByClassName("close")[0];
+  
+  button.onclick = function(){
+    modal.style.display = "block";
+  }
+
+  span.onclick = function(){
+    modal.style.display = "none";
+  }
+/*
+  window.onclick = function(event){
+    if(event.target == modal){
+      modal.style.display = "none";
+    }
+  }
+*/
+  // modal2
+  var modal1 = document.getElementById("Modal1");
+  var button1 = document.getElementById("Button1");
+  var span1 = document.getElementsByClassName("close1")[0];
+  
+  button1.onclick = function(){
+    modal1.style.display = "block";
+  }
+
+  span1.onclick = function(){
+    modal1.style.display = "none";
+  }
+
+  window.onclick = function(event){
+    if(event.target == modal || event.target == modal1){
+      modal.style.display = "none";
+      modal1.style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>
